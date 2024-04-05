@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fantaz - Fantasy Sports App</title>
+<link rel="stylesheet" href="styles1.css">
+<script src = "styles1.js" defer>
+  const username = document.getElementById('username').value;
+    // Example client-side JavaScript to handle user login
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('login-form');
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const password = document.getElementById('password').value;
+
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.token) {
+        // Handle successful login, store the token, navigate to the next page, etc.
+      } else {
+        // Handle login failure, show an error message, etc.
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+});
+</script>
+</head>
+<body>
+<header>
+  <h1>Fantaz</h1>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="home">
+    <h2>Welcome to Fantaz!</h2>
+    <p>Create your dream team and win big!</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Learn more about Fantaz and how to play.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out to our support team.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2024 Fantaz. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
